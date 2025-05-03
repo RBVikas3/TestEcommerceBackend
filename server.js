@@ -20,9 +20,10 @@ const commonFeatureRouter = require("./routes/common/feature-routes");
 // mongoose
 //   .connect('mongodb+srv://testvikas:test%40123@newtest.nybnwpu.mongodb.net/')
 //   .then(() => console.log("MongoDB connected"));
+const password = encodeURIComponent(process.env.MONGODB_PASSWORD);
 
+const MONGO_URI = `mongodb+srv://testEcommerce:${password}@ecommercetest.cdald5n.mongodb.net/?retryWrites=true&w=majority&appName=EcommerceTest`;
 
-const MONGO_URI = 'mongodb+srv://testvikas:test%40123@newtest.nybnwpu.mongodb.net/';
 const PORT =  5000;
 
 mongoose
