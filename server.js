@@ -1,3 +1,4 @@
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
@@ -13,6 +14,7 @@ const shopSearchRouter = require("./routes/shop/search-routes");
 const shopReviewRouter = require("./routes/shop/review-routes");
 
 const commonFeatureRouter = require("./routes/common/feature-routes");
+require('dotenv').config();
 
 //create a database connection -> u can also
 //create a separate file for this and then import/use that file here
@@ -21,6 +23,10 @@ const commonFeatureRouter = require("./routes/common/feature-routes");
 //   .connect('mongodb+srv://testvikas:test%40123@newtest.nybnwpu.mongodb.net/')
 //   .then(() => console.log("MongoDB connected"));
 const password = encodeURIComponent(process.env.MONGODB_PASSWORD);
+// const dockerpassword = process.env.DOCKER_PASSWORD;
+// console.log(dockerpassword,"dockerpassword")
+
+console.log("password",password)
 
 const MONGO_URI = `mongodb+srv://testEcommerce:${password}@ecommercetest.cdald5n.mongodb.net/?retryWrites=true&w=majority&appName=EcommerceTest`;
 
