@@ -15,7 +15,7 @@ jobs:
       - name: Build docker image
         run:  docker build -t vikas033/server .
       - name: Publish image to docker hub
-        run:  docker push vikas033/sever:latest
+        run:  docker push vikas033/server:latest
 
   deploy:    
       needs: build
