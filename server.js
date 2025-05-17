@@ -88,7 +88,7 @@ app.listen(PORT, '0.0.0.0', () => {
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://3.108.54.244",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
