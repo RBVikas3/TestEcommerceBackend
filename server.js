@@ -22,14 +22,14 @@ const commonFeatureRouter = require("./routes/common/feature-routes");
 // mongoose
 //   .connect('mongodb+srv://testvikas:test%40123@newtest.nybnwpu.mongodb.net/')
 //   .then(() => console.log("MongoDB connected"));
-const MONGO_URI = encodeURIComponent(process.env.MONGODB_PASSWORD);
+// const MONGO_URI = encodeURIComponent(process.env.MONGODB_PASSWORD);
 // console.log(process.env.DOCKER_PASSWORD, "jdjgdgjg")
 // const dockerpassword = process.env.MONGODB_PASSWORD;
 // console.log(dockerpassword,"dockerpassword")
 
 // console.log("password",password)
 
-// const MONGO_URI = `mongodb+srv://testEcommerce:Vikas%40123@ecommercetest.cdald5n.mongodb.net/?retryWrites=true&w=majority&appName=EcommerceTest`;
+const MONGO_URI = `mongodb+srv://testEcommerce:Vikas%40123@ecommercetest.cdald5n.mongodb.net/?retryWrites=true&w=majority&appName=EcommerceTest`;
 
 const PORT =  5000;
 console.log(MONGO_URI, "MONGO_URI")
@@ -79,9 +79,10 @@ apiRoutes.forEach((route) => {
 });
 
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
-})
+});
+
 
 
 
