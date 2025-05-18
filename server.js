@@ -54,7 +54,7 @@ app.listen(PORT, '0.0.0.0', () => {
 
 app.use(
   cors({
-    origin: "http://3.108.54.244:3000",
+    origin: "http://3.108.54.244",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
@@ -86,20 +86,4 @@ apiRoutes.forEach((route) => {
   app.use(route.path, route.router);
 });
 
-
-
-
-
-app.use("/api/auth", authRouter);
-app.use("/api/admin/products", adminProductsRouter);
-app.use("/api/admin/orders", adminOrderRouter);
-
-app.use("/api/shop/products", shopProductsRouter);
-app.use("/api/shop/cart", shopCartRouter);
-app.use("/api/shop/address", shopAddressRouter);
-app.use("/api/shop/order", shopOrderRouter);
-app.use("/api/shop/search", shopSearchRouter);
-app.use("/api/shop/review", shopReviewRouter);
-
-app.use("/api/common/feature", commonFeatureRouter);
 
