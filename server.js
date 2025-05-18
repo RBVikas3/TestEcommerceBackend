@@ -45,7 +45,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://3.108.54.244",
+    // origin: "http://3.108.54.244",
+    origin:true,
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
