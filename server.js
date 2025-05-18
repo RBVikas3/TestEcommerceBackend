@@ -45,7 +45,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://3.108.54.244:3000",
+    origin: "http://3.108.54.244/3000",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
@@ -61,26 +61,25 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 
-const apiRoutes = [
-  { path: "/api/auth", router: authRouter },
-  { path: "/api/admin/products", router: adminProductsRouter },
-  { path: "/api/admin/orders", router: adminOrderRouter },
-  { path: "/api/shop/products", router: shopProductsRouter },
-  { path: "/api/shop/cart", router: shopCartRouter },
-  { path: "/api/shop/address", router: shopAddressRouter },
-  { path: "/api/shop/order", router: shopOrderRouter },
-  { path: "/api/shop/search", router: shopSearchRouter },
-  { path: "/api/shop/review", router: shopReviewRouter },
-  { path: "/api/common/feature", router: commonFeatureRouter },
-];
-
-apiRoutes.forEach((route) => {
-  app.use(route.path, route.router);
-});
 
 
-app.listen(PORT, '0.0.0.0', () => {
+
+app.listen(PORT,"0.0.0.0", () => {
   console.log(`Server is running on port ${PORT}`);
 })
 
+
+
+app.use("/api/auth", authRouter);
+app.use("/api/admin/products", adminProductsRouter);
+app.use("/api/admin/orders", adminOrderRouter);
+
+app.use("/api/shop/products", shopProductsRouter);
+app.use("/api/shop/cart", shopCartRouter);
+app.use("/api/shop/address", shopAddressRouter);
+app.use("/api/shop/order", shopOrderRouter);
+app.use("/api/shop/search", shopSearchRouter);
+app.use("/api/shop/review", shopReviewRouter);
+
+app.use("/api/common/feature", commonFeatureRouter);
 
