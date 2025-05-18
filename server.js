@@ -43,9 +43,19 @@ mongoose
 
 const app = express();
 
+
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+
+
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://3.108.54.244:3000",
+    origin: true,
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
@@ -57,7 +67,6 @@ app.use(
     credentials: true,
   })
 );
-
 app.use(cookieParser());
 app.use(express.json());
 
@@ -79,30 +88,9 @@ apiRoutes.forEach((route) => {
 });
 
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
 
 
-
-app.use(
-  cors({
-    origin: "http://3.108.54.244:3000",
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
-    credentials: true,
-  })
-);
-
-app.use(cookieParser());
-app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/admin/orders", adminOrderRouter);
